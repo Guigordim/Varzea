@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Várzea Fashion Fut - Camisas de Times</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1e3a8a;
+      --secondary-color: #e11d48;
+      --accent-color: #16a34a;
+      --light-bg: #f8fafc;
+      --dark-bg: #0f172a;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-bg);
+      color: #333;
+    }
+    
+    .navbar {
+      background-color: var(--primary-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar-brand {
+      font-weight: 700;
+      color: white !important;
+    }
+    
+    .navbar-brand img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1508098682722-e99c43a406b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .logo-img {
+      max-width: 220px;
+      border-radius: 50%;
+      background-color: white;
+      padding: 10px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background-color: var(--secondary-color);
+    }
+    
+    .product-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-card img {
+      height: 280px;
+      object-fit: cover;
+    }
+    
+    .product-card .card-body {
+      padding: 1.5rem;
+    }
+    
+    .price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      border: none;
+      padding: 10px 20px;
+      font-weight: 600;
+    }
+    
+    .btn-primary:hover {
+      background-color: #1e40af;
+    }
+    
+    .btn-outline-primary {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+    
+    .btn-outline-primary:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .contact-info {
+      background-color: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    footer {
+      background-color: var(--dark-bg);
+      color: white;
+      padding: 2rem 0;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      color: white;
+      margin-right: 10px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .logo-img {
+        max-width: 180px;
+      }
+      
+      .navbar-brand img {
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="imagens\logo.png" alt="Várzea Fashion Fut Logo">
+        VÁRZEA FASHION FUT
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#inicio">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#produtos">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#sobre">Sobre Nós</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contato">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="container text-center">
+      <img src="imagens\logo.png" alt="Várzea Fashion Fut Logo" class="logo-img mb-4">
+      <h1>VÁRZEA FASHION FUT</h1>
+      <p class="lead">Camisas de times nacionais e internacionais com qualidade premium e preço justo.</p>
+      <div class="mt-4">
+        <a href="#produtos" class="btn btn-primary btn-lg me-2">Ver Produtos</a>
+        <a href="#contato" class="btn btn-outline-light btn-lg">Fale Conosco</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="py-5" id="produtos">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">NOSSOS PRODUTOS</h2>
+        <p class="text-muted">Confira nossa seleção de camisas de times com entrega para todo o Brasil</p>
+      </div>
+      
+      <div class="row">
+        <!-- Product 1 -->
+        <div class="col-md-4">
+          <div class="product-card card h-100">
+            <img src="imagens\cruzeiro.png" class="card-img-top" alt="Camisa do Cruzeiro">
+            <div class="card-body">
+              <h5 class="card-title">Camisa Cruzeiro I 2023/24</h5>
+              <p class="card-text">Camisa oficial Adidas do Cruzeiro, modelo titular com patrocínio Betfair.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="price">R$ 120,00</span>
+                <a href="https://api.whatsapp.com/send/?phone=5531998000012&text=Olá! Tenho interesse na camisa do Cruzeiro. Poderia me dar mais informações?" class="btn btn-primary">
+                  <i class="fab fa-whatsapp me-2"></i>Comprar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="col-md-4">
+          <div class="product-card card h-100">
+            <img src="imagens\galo.png" class="card-img-top" alt="Camisa do Atlético Mineiro">
+            <div class="card-body">
+              <h5 class="card-title">Camisa Atlético Mineiro I 2023/24</h5>
+              <p class="card-text">Camisa oficial Adidas do Atlético Mineiro, modelo listrado preto e branco.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="price">R$ 120,00</span>
+                <a href="https://api.whatsapp.com/send/?phone=5531998000012&text=Olá! Tenho interesse na camisa do Atlético Mineiro. Poderia me dar mais informações?" class="btn btn-primary">
+                  <i class="fab fa-whatsapp me-2"></i>Comprar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="col-md-4">
+          <div class="product-card card h-100">
+            <img src="imagens\brasil.png" class="card-img-top" alt="Camisa da Seleção Brasileira">
+            <div class="card-body">
+              <h5 class="card-title">Camisa Seleção Brasileira I 2023</h5>
+              <p class="card-text">Camisa oficial Nike da Seleção Brasileira, modelo titular amarelo.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <span class="price">R$ 120,00</span>
+                <a href="https://api.whatsapp.com/send/?phone=5531998000012&text=Olá! Tenho interesse na camisa da Seleção Brasileira. Poderia me dar mais informações?" class="btn btn-primary">
+                  <i class="fab fa-whatsapp me-2"></i>Comprar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-4">
+        <a href="https://www.instagram.com/varzeafashionfut/" class="btn btn-lg btn-outline-primary">
+          <i class="fab fa-instagram me-2"></i>Ver mais produtos no Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-5 bg-light" id="sobre">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <h2 class="section-title">SOBRE NÓS</h2>
+          <p>A Várzea Fashion Fut nasceu da paixão pelo futebol e pela moda esportiva. Somos especializados em camisas de times nacionais e internacionais com a melhor qualidade e preço justo.</p>
+          <p>Nosso objetivo é proporcionar aos torcedores a oportunidade de vestir as cores do seu time do coração com orgulho, seja para ir ao estádio, para praticar esportes ou para o dia a dia.</p>
+          <p>Trabalhamos com produtos de alta qualidade, garantindo a satisfação dos nossos clientes e entregando para todo o Brasil.</p>
+          <div class="mt-4">
+            <h5>Por que escolher a Várzea Fashion Fut?</h5>
+            <ul>
+              <li>Produtos de qualidade premium</li>
+              <li>Preços acessíveis - todas as camisas por apenas R$ 120,00</li>
+              <li>Entrega para todo o Brasil</li>
+              <li>Atendimento personalizado</li>
+              <li>Variedade de times nacionais e internacionais</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="text-center">
+            <img src="imagens\logo.png" alt="Várzea Fashion Fut Logo" class="img-fluid" style="max-width: 250px; margin-bottom: 20px;">
+            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Loja de camisas de futebol" class="img-fluid rounded shadow">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-5" id="contato">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">ENTRE EM CONTATO</h2>
+        <p class="text-muted">Estamos prontos para atender você e tirar todas as suas dúvidas</p>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <div class="contact-info h-100">
+            <div class="text-center mb-4">
+              <i class="fas fa-phone-alt contact-icon"></i>
+              <h4>WhatsApp</h4>
+              <p class="mb-2">Atendimento rápido pelo WhatsApp:</p>
+              <p class="mb-1">
+                <a href="https://api.whatsapp.com/send/?phone=5531998000012&text=Olá! Gostaria de mais informações sobre as camisas de futebol." class="btn btn-success">
+                  <i class="fab fa-whatsapp me-2"></i>(31) 99800-0012
+                </a>
+              </p>
+              <p>
+                <a href="https://api.whatsapp.com/send/?phone=553188882237&text=Olá! Gostaria de mais informações sobre as camisas de futebol." class="btn btn-success">
+                  <i class="fab fa-whatsapp me-2"></i>(31) 8888-2237
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="contact-info h-100">
+            <div class="text-center mb-4">
+              <i class="fab fa-instagram contact-icon"></i>
+              <h4>Instagram</h4>
+              <p class="mb-3">Siga-nos no Instagram para ver todas as novidades:</p>
+              <a href="https://www.instagram.com/varzeafashionfut/" class="btn btn-primary" style="background-color: #C13584;">
+                <i class="fab fa-instagram me-2"></i>@varzeafashionfut
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="d-flex align-items-center mb-3">
+            <img src="imagens\logo.png" alt="Várzea Fashion Fut Logo" style="height: 50px; margin-right: 10px;">
+            <h5 class="mb-0">VÁRZEA FASHION FUT</h5>
+          </div>
+          <p>Sua loja especializada em camisas de times nacionais e internacionais.</p>
+          <div class="social-links mt-3">
+            <a href="https://www.instagram.com/varzeafashionfut/"><i class="fab fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send/?phone=5531998000012"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h5>LINKS RÁPIDOS</h5>
+          <ul class="list-unstyled">
+            <li><a href="#inicio" class="text-white">Início</a></li>
+            <li><a href="#produtos" class="text-white">Produtos</a></li>
+            <li><a href="#sobre" class="text-white">Sobre Nós</a></li>
+            <li><a href="#contato" class="text-white">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>CONTATO</h5>
+          <ul class="list-unstyled">
+            <li><i class="fab fa-whatsapp me-2"></i>(31) 99800-0012</li>
+            <li><i class="fab fa-whatsapp me-2"></i>(31) 8888-2237</li>
+            <li><i class="fab fa-instagram me-2"></i>@varzeafashionfut</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4" style="background-color: rgba(255, 255, 255, 0.1);">
+      <div class="text-center">
+        <p class="mb-0">&copy; 2025 Várzea Fashion Fut. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://api.whatsapp.com/send/?phone=5531998000012&text=Olá! Gostaria de mais informações sobre as camisas de futebol." class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
